@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from './components/navbar/Navbar';
-import UserItem from'./components/users/UserItem';
+import User from'./components/users/User';
 import './App.css';
 
 class App extends Component{
@@ -8,20 +8,19 @@ class App extends Component{
     const name = "Bishal Udash";
     const getAge =() => "24";
     const loading = false;
-
+    
     return (
       <div className="App">
         <Navbar />
-
-        <div>
-          {loading ?  "Loading"  : "Hello "+ name.toUpperCase()}
-        </div>
+          <div className="container">
+        <User />
+        {loading ?  "Loading"  : "Hello "+ name.toUpperCase()}
         <p>{getAge()}</p>
-
-        <UserItem />
+        </div>
       </div>
-    );
+      );
+    }
   }
-}
-
-export default App;
+  
+  export default App;
+  

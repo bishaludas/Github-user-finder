@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import UserItems from "./UserItems";
 
 class Users extends Component {
-  constructor() {
-    super();
-    console.log("hi");
-  }
-
   render() {
     return (
       <div style={userStyle}>

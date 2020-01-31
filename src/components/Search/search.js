@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export class search extends Component {
   state = {
     name: ""
+  };
+
+  static propTypes = {
+    searchUsers: PropTypes.func.isRequired
   };
 
   // Fetches value from all input fields in js object structure
@@ -12,7 +17,8 @@ export class search extends Component {
 
   OnSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.searchUsers(this.state.name);
+    this.setState({ name: "" });
   };
 
   render() {

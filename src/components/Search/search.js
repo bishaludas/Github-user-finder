@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 
 export class search extends Component {
   state = {
-    name: "",
-    error: ""
+    name: ""
   };
 
   static propTypes = {
     searchUsers: PropTypes.func.isRequired,
     clearUsers: PropTypes.func.isRequired,
-    showClear: PropTypes.bool.isRequired
+    showClear: PropTypes.bool.isRequired,
+    setAlert: PropTypes.func.isRequired
   };
 
   // Fetches value from all input fields in js object structure
@@ -18,16 +18,16 @@ export class search extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  // Action on form submit
   OnSubmit = e => {
     e.preventDefault();
     // check if is of valid length
-    if (this.state.name.length == null || this.state.name === "") {
-      this.setState({ error: "Empty string provided" });
+    if (this.state.name === "") {
+      this.props.setAlert("Search field cannot be empty", "light");
     } else {
       this.props.searchUsers(this.state.name);
-      this.setState({ error: "" });
+      this.setState({ name: "" });
     }
-    this.setState({ name: "" });
   };
 
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/layouts/Navbar";
+import Alert from "./components/layouts/Alert";
 import Users from "./components/Users/Users";
 import Search from "./components/Search/search";
 import axios from "axios";
@@ -8,7 +9,8 @@ import axios from "axios";
 class App extends Component {
   state = {
     users: [],
-    loading: false
+    loading: false,
+    alert: null
   };
 
   async componentDidMount() {
@@ -33,6 +35,14 @@ class App extends Component {
     this.setState({ users: [], loading: false });
   };
 
+  // set alert
+  setAlert = (msg, type) => {
+    this.setState({ alert: { msg, type } });
+    setTimeout(() => {
+      this.setState({ alert: null });
+    }, 3000);
+  };
+
   render() {
     // deconstructing values
     const { users, loading } = this.state;
@@ -41,10 +51,12 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <div className="container">
+          <Alert showAlert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}
             showClear={users.length > 0 && true}
+            setAlert={this.setAlert}
           />
           <Users loading={loading} users={users} />
         </div>

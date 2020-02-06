@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layouts/Navbar";
 import Alert from "./components/layouts/Alert";
 import Users from "./components/Users/Users";
 import Search from "./components/Search/search";
 import axios from "axios";
+import "./App.css";
 
 class App extends Component {
   state = {

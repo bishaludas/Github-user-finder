@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layouts/Navbar";
 import Alert from "./components/layouts/Alert";
 import Users from "./components/Users/Users";
-import Search from "./components/Search/search";
+import Search from "./components/Search/Search";
 import About from "./components/pages/About";
 import ShowUser from "./components/Users/ShowUser";
 import axios from "axios";

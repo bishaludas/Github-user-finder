@@ -21,24 +21,24 @@ class ShowUser extends Component {
   render() {
     const {
       login,
-      id,
+      // id,
       avatar_url,
       html_url,
-      followers_url,
-      following_url,
+      // followers_url,
+      // following_url,
       name,
       company,
       blog,
       location,
-      email,
+      // email,
       hireable,
       bio,
       public_repos,
       public_gists,
       followers,
-      following,
-      created_at,
-      updated_at
+      following
+      // created_at,
+      // updated_at
     } = this.props.user;
 
     const { loading, repos } = this.props;

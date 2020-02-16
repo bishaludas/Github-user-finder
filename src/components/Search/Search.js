@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
+import GithubContext from "../../context/github/githubContext";
 
-const Search = ({ showClear, clearUsers, searchUsers, setAlert }) => {
+const Search = ({ showClear, clearUsers, setAlert }) => {
+  const githubContext = useContext(GithubContext);
   const [name, setName] = useState("");
 
   // Fetches value from all input fields in js object structure
@@ -17,7 +19,7 @@ const Search = ({ showClear, clearUsers, searchUsers, setAlert }) => {
     if (name === "") {
       setAlert("Search field cannot be empty", "light");
     } else {
-      searchUsers(name);
+      githubContext.searchUsers(name);
       // this.setState({ name: "" });
       setName("");
     }
@@ -55,7 +57,6 @@ const Search = ({ showClear, clearUsers, searchUsers, setAlert }) => {
 };
 
 Search.propTypes = {
-  searchUsers: PropTypes.func.isRequired,
   clearUsers: PropTypes.func.isRequired,
   showClear: PropTypes.bool.isRequired,
   setAlert: PropTypes.func.isRequired
